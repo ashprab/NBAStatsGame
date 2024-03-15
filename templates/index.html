@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess the Highest Rank - NBA Stats</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NBA Stats Game</h1>
+        <p>Welcome to the NBA Stats Game! Here's how to play:</p>
+        <ol>
+            <li>Select the stat category for which you think the given player ranks highest.</li>
+            <li>Repeat this for new random players until you run out of empty categories</li>
+            <li>Try to get your total ranks under 150 to win!</li>
+            <li>Good luck!</li>
+        </ol>
+        <form action="/" method="POST">
+            <label for="category">Guess rank for {{ player }}:</label>
+            <select name="category" id="category">
+                {% for category in remaining_categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
